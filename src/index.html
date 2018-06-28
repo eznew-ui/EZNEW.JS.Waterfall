@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>瀑布流插件</title>
+		<script type="text/javascript" src="jquery.min.js" ></script>
+		<script type="text/javascript" src="modernizr.js" ></script>
+		<script type="text/javascript" src="waterfall.js" ></script>
+		<script>
+			var nowWaterfall;
+			$(function(){
+				setTimeout(function(){
+					nowWaterfall=$("#img_container").leewaterfall({
+						minColumn:1,
+						maxColumn:5,
+						columnSelector:".m-item",
+						columnWidth:250,
+						columnSpace:10,
+						load:addItem
+					});
+				},50);
+			});
+			
+			function addItem(){
+				for(var i=0;i<2;i++){
+					for(var p=1;p<=10;p++){
+						var newEle=$('<div class="m-item"><img src="images/'+p+'.jpg"/></div>');
+						nowWaterfall.AppendElement(newEle);
+					}
+				}
+				nowWaterfall.nowLoad=!1;
+			}
+		</script>
+		
+		<style>
+		body{
+			margin:0px;
+			padding:0px;
+		}
+			#img_container{position:relative;margin:0px auto;}
+			.m-item{ width:236px; max-height:500px; overflow:hidden}
+			.m-item img{ width:100%;}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="img_container">
+				<div class="m-item"><img src="images/1.jpg"/></div>
+				<div class="m-item"><img src="images/2.jpg"/></div>
+				<div class="m-item"><img src="images/3.jpg"/></div>
+				<div class="m-item"><img src="images/4.jpg"/></div>
+				<div class="m-item"><img src="images/5.jpg"/></div>
+				<div class="m-item"><img src="images/6.jpg"/></div>
+				<div class="m-item"><img src="images/7.jpg"/></div>
+				<div class="m-item"><img src="images/8.jpg"/></div>
+				<div class="m-item"><img src="images/9.jpg"/></div>
+				<div class="m-item"><img src="images/10.jpg"/></div>
+				<div class="m-item"><img src="images/1.jpg"/></div>
+				<div class="m-item"><img src="images/2.jpg"/></div>
+				<div class="m-item"><img src="images/3.jpg"/></div>
+				<div class="m-item"><img src="images/4.jpg"/></div>
+				<div class="m-item"><img src="images/5.jpg"/></div>
+				<div class="m-item"><img src="images/6.jpg"/></div>
+				<div class="m-item"><img src="images/7.jpg"/></div>
+				<div class="m-item"><img src="images/8.jpg"/></div>
+				<div class="m-item"><img src="images/9.jpg"/></div>
+				<div class="m-item"><img src="images/10.jpg"/></div>
+			</div>
+		</div>
+	</body>
+</html>
